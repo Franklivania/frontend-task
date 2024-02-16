@@ -1,6 +1,7 @@
-import { Icon } from "@iconify/react";
-import { useImage } from "../utils/addImage";
 import { useEffect, useState } from "react";
+import { useImage } from "../utils/addImage";
+import { Icon } from "@iconify/react";
+import icon from "/images/img.svg";
 import "../App.css"
 
 export default function Home() {
@@ -110,7 +111,7 @@ export default function Home() {
                                     <input type="file" name="image" id={`image-${item.id}`} className="hidden" onChange={(e) => handleAddImage(e, item.id)} />
                                     <label htmlFor={`image-${item.id}`} className="w-max flex items-center gap-1 bg-white my-3 ml-auto cursor-pointer p-2 rounded-lg shadow-sm shadow-lt-gray">
                                         Add Image
-                                        <Icon icon="bi:image-alt" className="text-2xl" />
+                                        <img src={icon} alt="image icon" />
                                     </label>
                                 </span>
                             </div>
