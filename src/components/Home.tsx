@@ -50,7 +50,7 @@ export default function Home() {
         <section className="relative">
             <header className="relative my-4 flex items-center justify-between">
                 <h2 className="text-3xl font-semibold">
-                    Tick the task you completed yesterday
+                    Tick the tasks you completed yesterday
                 </h2>
             </header>
 

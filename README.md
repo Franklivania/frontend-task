@@ -1,30 +1,60 @@
-# React + TypeScript + Vite
+# Frontend task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### This project was built using Vite + React + TypeScript.
 
-Currently, two official plugins are available:
+*Table of Contents*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introduction](#introduction)
+  - [Overview](#overview)
+  - [Structure](#structure)
+- [Functionalities](#functionalites)
+- [Conclusion](#conclusion)
 
-## Expanding the ESLint configuration
+### Introduction
+This project is done in the fulfuilement of the task given to me to complete.
+This is how the structure of the application looks at build
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+/*add screenshot here*/
 
-- Configure the top-level `parserOptions` property like this:
+#### Overview
+The core of this project is built using React-TypeScript, TailwindCSS and ContextAPI. It prioritises both core design, and the supposed functionalies expected of the system to perform.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+The layout of the application was primarily done on the Firefox brower, and has been viewed across Microsoft Edge, and Google chrome. The reasons for this, is to ensure cross-browser functionality, whilst maintaing the code standard.
+
+The project was bootstrapped using `yarn`
+
+#### Structure
+As all standard react codes are written, the core component exists, and is displayed at the main. Now, the folder arrangement for this outline is;
+
 ```
+|- public
+  |- images
+| - src
+  |- assets
+  |- components
+  |- utils
+```
+The main components that make up the code structures, are contained in the `components`. This is to ensure that these components can be tussled, and reused wherever they are needed.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The `utils` folder contains functions and utilities which would be used accross the application, which would limit writing of some functions, making easier to manage some processes.
+
+The `assets` are supposed to hold assets which would be used in the building of the layout, but... they are put in the `public` folder for easy reach and use.
+
+### Functionalities
+Now, in this application, there are certain functionalities which have been made, following the interactions seen and gotten from the way the figma design looks. they are;
+
+- **Nav Toggle:** now, based on the observation from the design, it is supposed that clicking the Navigation items should be able to render a new display. This is done, although there is nothing in those displays, only indicator that you are in that display. This was implemented using prop communications between components, and the use of the `switch case` function to enable a back and forth toggle and render of components.
+
+- **Back Button:** as interpreted in the design, the back button should go back to the previous screen. This is implemented using the `useCallback` hook in React. This is to ensure the smooth use of the interface. In more complex applications, it would be implemented with much scalable and roboust code.
+
+- **Checkbox interactions:** upon checking the box, from the design, I noticed it changes the side color of the task to be done. This is implemented by the use of the `useState` hook, so as to understand and create an interaction between the color change and the checkbox click, when it transitions from `false` to `true`.
+
+- **Adding Images:** Now, it is noticed that image could be added to buttress a particular point for that particular task. This is where the `utils` folder comes in, as it contians the `addImage` function where the `useContext` hook was used to create a universal provider, which could communicate transversly and smoothly through the application without much hassle and decrease the need for props. However the images do not save to local storage, and would be unmounted after a refresh.
+
+- **Responsiveness:** I noticed there was a design made for the mobile screen, and it's implementation, so using `TailwindCSS` made working on the responsiveness easier and managable.
+
+- **Coin Increase:** I noticed between the two frames *mobile* & *desktop*, that there was a significant increase between the values on the orange-like button at the top right of the frame. So, an increase counter was implemented as the button is being clicked.
+
+Another core integration which was made, was rendering accurately the dummy tasks as was created. This was done by creating a `state`, using the `useState` hook, which held the tasks, and the `dangerouslySetInnerHTML`, which was used so as to render the text appropriately, which the predetermined stylings (*would not be done under normal circumstances, as measures for that would be handled server-side*).
+
+### Conclusion
