@@ -18,7 +18,7 @@ export default function App() {
   }, [lastActive]);
 
   return (
-    <main className='relative w-screen h-screen bg-lt-white overflow-hidden'>
+    <main className='relative w-screen h-screen bg-lt-white overflow-hidden font-varela'>
       <Navbar active={active} setActive={updateActive} />
       <Display active={active} goBack={goBack} />
     </main>

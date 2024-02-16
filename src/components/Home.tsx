@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useImage } from "../utils/addImage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "../App.css"
 
 export default function Home() {
     const {images, addImage, removeImage} = useImage();
@@ -17,6 +18,25 @@ export default function Home() {
             status: false,
         }
     ]);
+
+    useEffect(() => {
+        updateProgress();
+    }, [tasks]);
+
+    const updateProgress = () => {
+        const totalTasks = tasks.length;
+        const circumference = 2 * Math.PI * 20;
+        const completedTasks = tasks.filter(task => task.status).length;
+        const initialFill = 0.05 * circumference; // 0.2% of the circumference
+        const progress = ((completedTasks / totalTasks) * (circumference - initialFill)) + initialFill;
+        const dashOffset = circumference - progress;
+        
+        const progressCircle:any = document.querySelector('.progress-circle__progress');
+        if (progressCircle) {
+            progressCircle.style.strokeDashoffset = dashOffset;
+            progressCircle.style.strokeDasharray = `${circumference}`;
+        }
+    }
 
     const handleAddImage = (event: React.ChangeEvent<HTMLInputElement>, taskId: number) => {
         if (event.target.files && event.target.files[0]) {
@@ -44,14 +64,22 @@ export default function Home() {
         });
 
         setTasks(updatedTasks);
+        // updateProgress();
     };
 
     return(
         <section className="relative">
             <header className="relative my-4 flex items-center justify-between">
-                <h2 className="text-3xl font-semibold">
+                <h2 className="text-3xl font-semibold w-[60%] max-xl:w-max">
                     Tick the tasks you completed yesterday
                 </h2>
+                <aside>
+                <svg className="progress-circle" width="50" height="50">
+                    <circle className="progress-circle__background" cx="25" cy="25" r="20"></circle>
+                    <circle className="progress-circle__progress" cx="25" cy="25" r="20"></circle>
+                </svg>
+
+                </aside>
             </header>
 
             <span className="text-gray flex items-center gap-3 p-2 border border-lt-gray rounded-lg">

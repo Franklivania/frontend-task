@@ -2,6 +2,7 @@ import logo from "/images/logo.svg";
 import { data } from "./_navdata";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import SideNav from "./SideNav";
 
 type NavbarProps = {
     active: number | null;
@@ -11,16 +12,18 @@ type NavbarProps = {
 
 export default function Navbar({active, setActive}:NavbarProps) {
     const [count, setCount] = useState<number>(0);
+    const [expand, setExpand] = useState<boolean>(false)
 
     const increaseCount = () => {
         setCount(count + 1);
     }
     
     return(
-        <nav role="navigation" className="flex items-center px-16 py-4">
-            <img src={logo} width={50} height={50} alt="Logo" />
+        <nav role="navigation" className="flex items-center px-16 max-md:px-4 py-4">
+            <img src={logo} width={50} height={50} alt="Logo" className="cursor-pointer z-40" onClick={() => setExpand(!expand)} />
+            <SideNav active={active} setActive={setActive} className={`transition-all duration-300 ease-in-out lg:hidden ${expand ? "translate-x-0" : "-translate-x-[100%]"}`} />
 
-            <span className="flex items-center gap-5 ml-16">
+            <span className="flex items-center gap-5 ml-16 max-lg:hidden">
                 {data.map((items, idx) => (
                     <button key={idx} 
                         className={`flex items-center gap-[10px] py-2 px-4 rounded-full transition-all duration-150 hover:bg-white ${active ===  idx ? "bg-white shadow-sm shadow-lt-gray font-semibold" : ""}`}

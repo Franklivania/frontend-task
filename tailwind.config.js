@@ -6,7 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundColor: {
+      fontFamily: {
+        varela: ['Varela Round', 'sans-serif'],
       },
       colors: {
         'green': "#0FA060",
@@ -16,6 +17,7 @@ export default {
         'blue': "#5D84E8",
         'white': "#FFFFFF",
         'lt-white': "#F3F5F6",
+        'tr-white': "rgba(243, 245, 246, 0.4)",
         'gray': "#7D849D",
         'lt-gray': "#E8E8E8",
         'black': "#2A2A2A",
