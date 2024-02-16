@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 
 export default function App() {
   const [active, setActive] = useState<number | null>(0);
-  const [lastActive, setLastActive] = useState<number | null>(null);
+  const [lastActive, setLastActive] = useState<number | null>(0);
 
   const updateActive = useCallback((newActive: number | null) => {
     setLastActive(active);
