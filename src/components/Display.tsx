@@ -1,17 +1,39 @@
 import { Icon } from "@iconify/react";
+import Home from "./Home";
+import Team from "./Team";
+import Accounts from "./Accounts";
+
+type DisplayProps = {
+    active: number | null;
+    goBack: () => void;
+}
 
 
-export default function Display() {
+export default function Display({active, goBack}:DisplayProps) {
+    const renderComponent = () => {
+        switch(active) {
+            case 0:
+                return <Home />;
+            case 1:
+                return <Team />;
+            case 2:
+                return <Accounts />
+            default:
+                return <Home />
+        }
+    }
+
     return(
         <section className="relative w-full h-full flex items-center justify-center">
             <button type="button"
-                className="absolute top-7 max-md:left-3 left-44 flex items-center gap-2 text-gray rounded-md bg-white shadow-sm shadow-lt-gray px-4 py-2"
+                className="absolute top-7 max-md:left-3 left-52 flex items-center gap-2 text-gray rounded-md bg-white shadow-sm shadow-lt-gray px-4 py-2"
+                onClick={goBack}
             >
                 <Icon icon="ci:chevron-left" className="text-black text-2xl" />
                 Back
             </button>
-            <section className="w-[60em] max-md:w-[95%] h-[70%] bg-white rounded-lg">
-
+            <section className="w-[60em] max-md:w-[95%] h-[70%] bg-white rounded-lg overflow-x-hidden p-4">
+                {renderComponent()}
             </section>
         </section>
     )

@@ -3,9 +3,13 @@ import { data } from "./_navdata";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 
+type NavbarProps = {
+    active: number | null;
+    setActive: (active: number | null) => void
+}
 
-export default function Navbar() {
-    const [active, isActive] = useState<number | null>(0);
+
+export default function Navbar({active, setActive}:NavbarProps) {
     const [count, setCount] = useState<number>(0);
 
     const increaseCount = () => {
@@ -20,7 +24,7 @@ export default function Navbar() {
                 {data.map((items, idx) => (
                     <button key={idx} 
                         className={`flex items-center gap-[10px] py-2 px-4 rounded-full transition-all duration-150 hover:bg-white ${active ===  idx ? "bg-white shadow-sm shadow-lt-gray font-semibold" : ""}`}
-                        onClick={() => isActive(idx)}
+                        onClick={() => setActive(idx)}
                         type="button"
                         aria-label={items.title}
                         aria-labelledby={items.title}

@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Accounts() {
     return(
         <section>
             This is the acocunt space
