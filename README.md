@@ -16,6 +16,8 @@ This is how the structure of the application looks at build
 
 ![This is the image on load *desktop view* ](./public/images/image.png)
 
+[View Live Site here](https://lovely-sunflower-ffcd06.netlify.app/)
+
 #### Overview
 The core of this project is built using React-TypeScript, TailwindCSS and ContextAPI. It prioritises both core design, and the supposed functionalies expected of the system to perform.
 
