@@ -32,7 +32,7 @@ export default function Display({active, goBack}:DisplayProps) {
                 <Icon icon="ci:chevron-left" className="text-black text-2xl" />
                 Back
             </button>
-            <section className="w-[52em] max-lg:w-[95%] h-[70%] max-md:-mt-32 bg-white rounded-lg overflow-x-hidden py-4 px-8">
+            <section className="w-[52em] max-lg:w-[95%] h-[70%] max-md:-mt-28 bg-white rounded-2xl overflow-x-hidden py-4 px-8">
                 {renderComponent()}
             </section>
         </section>
