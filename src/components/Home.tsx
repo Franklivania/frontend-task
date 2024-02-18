@@ -128,7 +128,7 @@ export default function Home() {
                         </span>
                     </div>
                 ))}
-                <button type="button" className="bg-lt-green text-white px-8 py-2 rounded-lg ml-auto my-4">
+                <button type="button" className="bg-lt-green text-black font-semibold px-8 py-2 rounded-lg ml-auto my-4">
                     Proceed
                 </button>
             </section>
