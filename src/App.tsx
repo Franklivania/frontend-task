@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import './App.css'
 import Display from './components/Display'
 import Navbar from './components/Navbar'
+import FootNav from './components/FootNav';
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
     <main className='relative w-screen h-screen bg-lt-white overflow-hidden font-varela'>
       <Navbar active={active} setActive={updateActive} />
       <Display active={active} goBack={goBack} />
+      <FootNav active={active} setActive={updateActive} />
     </main>
   )
 }

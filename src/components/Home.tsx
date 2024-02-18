@@ -28,7 +28,7 @@ export default function Home() {
         const totalTasks = tasks.length;
         const circumference = 2 * Math.PI * 20;
         const completedTasks = tasks.filter(task => task.status).length;
-        const initialFill = 0.05 * circumference; // 0.2% of the circumference
+        const initialFill = 0.2  * circumference;
         const progress = ((completedTasks / totalTasks) * (circumference - initialFill)) + initialFill;
         const dashOffset = circumference - progress;
         
@@ -65,13 +65,12 @@ export default function Home() {
         });
 
         setTasks(updatedTasks);
-        // updateProgress();
     };
 
     return(
         <section className="relative">
             <header className="relative my-4 flex items-center justify-between">
-                <h2 className="text-3xl font-semibold w-[60%] max-xl:w-max">
+                <h2 className="text-3xl font-semibold w-[60%] max-xl:w-max max-lg:text-2xl">
                     Tick the tasks you completed yesterday
                 </h2>
                 <aside>

@@ -2,7 +2,6 @@ import logo from "/images/logo.svg";
 import { data } from "./_navdata";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
-import SideNav from "./SideNav";
 
 type NavbarProps = {
     active: number | null;
@@ -12,7 +11,6 @@ type NavbarProps = {
 
 export default function Navbar({active, setActive}:NavbarProps) {
     const [count, setCount] = useState<number>(0);
-    const [expand, setExpand] = useState<boolean>(false)
 
     const increaseCount = () => {
         setCount(count + 1);
@@ -20,8 +18,7 @@ export default function Navbar({active, setActive}:NavbarProps) {
     
     return(
         <nav role="navigation" className="flex items-center px-16 max-md:px-4 py-4">
-            <img src={logo} width={50} height={50} alt="Logo" className="cursor-pointer z-40" onClick={() => setExpand(!expand)} />
-            <SideNav active={active} setActive={setActive} className={`transition-all duration-300 ease-in-out lg:hidden ${expand ? "translate-x-0" : "-translate-x-[100%]"}`} />
+            <img src={logo} width={50} height={50} alt="Logo" className="cursor-pointer z-40"/>
 
             <span className="flex items-center gap-5 ml-16 max-lg:hidden">
                 {data.map((items, idx) => (
@@ -41,7 +38,7 @@ export default function Navbar({active, setActive}:NavbarProps) {
 
             <aside className="ml-auto flex items-center gap-4">
                 <button type="button" 
-                    className="p-2 rounded-full bg-white shadow-sm shadow-lt-gray"
+                    className="p-2 rounded-full bg-lt-white shadow-sm shadow-gray"
                     aria-label="Notifications"
                     aria-labelledby="Notifications"
                     title="Notifications"
