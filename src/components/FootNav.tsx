@@ -8,7 +8,7 @@ type FootNavProps = {
 
 export default function FootNav({active, setActive}:FootNavProps) {
     return(
-        <menu className="relative w-full flex items-center justify-between -mt-36 px-14 lg:hidden">
+        <menu className="relative w-full flex items-center justify-between -mt-36 px-4 lg:hidden">
             {data.map((items, idx) => (
                 <button type="button"
                     key={idx}
